@@ -1,0 +1,17 @@
+[MAIN]
+IDSERVER=c1111111ons
+PORT=co11111ns
+FORCE_REPLACE=1
+
+[VERIFY]
+ServerVerify=0cons
+ServerVerifyCA=0cons
+
+[PROXY]
+USE_KIND=1
+SERVER=cons
+USER=cons
+PASSW=cons
+
+[HWID]
+HwidKeyUsed=cons
