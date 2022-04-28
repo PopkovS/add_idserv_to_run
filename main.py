@@ -189,6 +189,7 @@ window = sg.Window('', layout, icon='gear64.png',
                    keep_on_top=False
                    )
 
+#dsasd
 
 def gui_app():
     while True:
