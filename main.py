@@ -76,7 +76,6 @@ def info_popup(text, header=' ', non_blocking=False, auto_close=False, text_colo
                         keep_on_top=True,
 
                         location=location
-                        # relative_location=r_location
                         )
 
 
@@ -89,7 +88,8 @@ def error_message(text, color=red):
 
 def create_temp_file(path, file_name, text):
     # os.system(f'[[ -d {path} ]] || mkdir -p {path}  > /dev/null')
-    subprocess.run(f'[[ -d {path} ]] || mkdir -p {path}', shell=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    subprocess.run(f'[[ -d {path} ]] || mkdir -p {path}', shell=True, stdout=subprocess.DEVNULL,
+                   stderr=subprocess.DEVNULL)
     file = open(path + file_name, 'w', encoding='utf-8')
     file.write(text)
     # os.system(f'chmod 755 {path}{file_name}  > /dev/null')
@@ -181,8 +181,10 @@ layout = [
      sg.Text(text='', size=(13, 1), background_color=strong_gray, expand_x=True),
      sg.Button('справка', key='info', size=(16, 1), button_color=('', but_gray), font=('', 9, 'bold'))]]
 
-window = sg.Window('', layout, icon='./helper.ico',
-                   titlebar_icon='./helper.ico',
+window = sg.Window('', layout, icon='gear64.png',
+                   titlebar_icon='gear64.png',
+                   # use_custom_titlebar=True,
+                   # no_titlebar=True,
                    background_color=strong_gray,
                    keep_on_top=False
                    )
@@ -213,11 +215,11 @@ def gui_app():
 
         if event == "FUNC_COMPLETE":
             if values["FUNC_COMPLETE"]:
-                info_popup("   "+"Произошла непредвиденная ошибка!", location=(x, y + int(size_y) / 2),
+                info_popup("   " + "Произошла непредвиденная ошибка!", location=(x, y + int(size_y) / 2),
                            text_color=red, auto_close=True, grab_anywhere=False)
             else:
 
-                info_popup("   "+"Изменения успешно внесены", location=(x, y + int(size_y) / 2),
+                info_popup("   " + "Изменения успешно внесены", location=(x, y + int(size_y) / 2),
                            text_color=green, auto_close=True, grab_anywhere=False)
 
         if event == 'info':
